@@ -6,17 +6,22 @@ pipeline
     maven '3'
     jdk '8'
   }
-  stages {
-    stage ("initialize") {
-      steps {
+  stages
+  {
+    stage ("initialize") 
+    {
+      steps 
+      {
         sh '''
         echo "PATH = ${PATH}"
         echo "M2_HOME = ${M2_HOME}"
         '''
         }
     } 
-    stage ('Build project') {
-      steps {
+    stage ('Build project')
+    {
+      steps 
+      {
         dir("project_templates/java_project_template"){
         sh 'mvn clean verify'
       }   
