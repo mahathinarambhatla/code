@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'pwd'
-                sh 'wget http://updates.jenkins-ci.org/download/war/2.89.2/jenkins.war'
+                
             }
          }
         stage('Artifact Upload')
