@@ -8,7 +8,7 @@ pipeline
       steps 
       {
         sh '''
-        who am i
+        whoami
         echo "PATH = ${PATH}"
         echo "M2_HOME = ${M2_HOME}"
         '''
