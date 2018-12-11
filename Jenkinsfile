@@ -3,7 +3,7 @@ pipeline
   agent any
   tools
   {
-    maven '3.0'
+    maven 'M3'
    }
   stages
   {
