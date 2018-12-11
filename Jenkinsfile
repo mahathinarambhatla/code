@@ -13,6 +13,7 @@ pipeline
       steps 
       {
         sh '''
+        who am i
         echo "PATH = ${PATH}"
         echo "M2_HOME = ${M2_HOME}"
         '''
