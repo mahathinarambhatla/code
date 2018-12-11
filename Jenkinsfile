@@ -12,8 +12,7 @@ pipeline {
         stage('Artifact Upload')
         {
             steps{
-            nexusArtifactUploader {
-                nexusVersion('nexus3')
+            nexusArtifactUploader { nexusVersion('nexus3')
                 protocol('http')
                 nexusUrl('10.1.227.16:8081')
                  groupId('bytecode-viewer')
