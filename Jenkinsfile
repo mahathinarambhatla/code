@@ -12,20 +12,8 @@ pipeline {
         stage('Artifact Upload')
         {
             steps{
-            nexusArtifactUploader { nexusVersion('nexus3')
-                protocol('http')
-                nexusUrl('10.1.227.16:8081')
-                 groupId('bytecode-viewer')
-                 version('3.0.0')
-                repository('maven-trial')
-                credentialsId('6dcef9b8-246e-406b-8362-9b49dd420d39')
-                artifact {
-                 artifactId('nexus-artifact-uploader')
-                    type('jar')
-                    classifier('debug')
-                    file('bytecode-viewer-3.0.0.jar')
-                  }
-                }
+            nexusArtifactUploader artifacts: [[artifactId: 'bytecode-viewer', classifier: '', file: 'bytecode-viewer-3.0.0.jar', type: 'jar']], credentialsId: 'baf54de6-ae59-467c-8302-cdd09514b531', groupId: 'the.bytecode.club', nexusUrl: '10.1.227.16:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-trial', version: '3.0.0'
+
             }
         }
     }
