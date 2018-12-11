@@ -17,7 +17,7 @@ pipeline
     stage ('Build project') {
       steps {
         dir("project_templates/java_project_template"){
-        sh 'mvn clean verify
+        sh 'mvn clean verify'
       }   
     }
   }
