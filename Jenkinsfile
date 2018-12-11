@@ -1,29 +1,13 @@
-pipeline
-{
-  agent any
-   stages
-  {
-    stage ("initialize") 
-    {
-      steps 
-      {
-        sh '''
-        whoami
-        echo "PATH = ${PATH}"
-        echo "M2_HOME = ${M2_HOME}"
-        '''
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
         }
-    } 
-    stage ('Build project')
-    {
-      steps 
-      {
-        dir("project_templates/java_project_template")
-        {
-          sh 'mvn clean verify'
-        }
-      }   
     }
-  }
-}
-  
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
