@@ -13,7 +13,8 @@ pipeline {
         stage('Artifact Upload')
         {
             steps{
-            nexusArtifactUploader artifacts: [[artifactId: 'sample', classifier: '', file: 'jenkins.war', type: 'war']], credentialsId: '882f6950-51f0-4369-aed1-9ecbee145518', groupId: 'sample', nexusUrl: '35.237.177.205:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0'
+            nexusArtifactUploader artifacts: [[artifactId: 'jenkins', classifier: '', file: 'jenkins.war', type: 'war']], credentialsId: 'nexus', groupId: 'com', nexusUrl: '35.231.84.239:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0'
+
 
             }
         }
