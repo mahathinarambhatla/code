@@ -6,8 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'pwd'
-                sh 'wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war'
+                sh 'mvn clean package'
             }
          }
         stage('Artifact Upload')
