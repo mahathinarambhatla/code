@@ -12,9 +12,7 @@ pipeline {
         stage('Artifact Upload')
         {
             steps{
-            nexusArtifactUploader artifacts: [[artifactId: 'jenkins', classifier: '', file: 'jenkins.war', type: 'war']], credentialsId: 'nexus', groupId: 'com', nexusUrl: '35.231.84.239:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-releases', version: '1.0'
-
-
+            nexusArtifactUploader artifacts: [[artifactId: 'bytecode-viewer', classifier: '', file: 'target/bytecode-viewer-3.0.0.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'the.bytecode.club', nexusUrl: '35.231.84.239:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-trial', version: '3.0.0'
             }
         }
     }
