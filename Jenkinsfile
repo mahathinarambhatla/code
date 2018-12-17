@@ -9,7 +9,7 @@ pipeline
   {      
     stage('Maven Build') {
       when {
-        expression { return sh 'find . -name pom.xml'}
+        expression { return readFile('pom.xml')}
          }
          steps {
                 sh 'mvn clean package'
@@ -21,7 +21,7 @@ pipeline
      stage('Build NPM Code') 
       {
          when {
-           expression { return sh 'find . -name package.json'}
+           expression { return readFile('package.json')
          }
        steps{
          sh 'cp .npmrc /var/lib/jenkins'
