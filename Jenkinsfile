@@ -7,7 +7,7 @@ pipeline
  stages 
   {      
     stage('NPM Build') {
-      when { fileExists('package.json')}
+      when { expression { return fileExists('package.json')}}
         steps {
                 sh 'mvn clean package'
            nexusArtifactUploader artifacts: [[artifactId: 'bytecode-viewer', classifier: '', file: 'target/bytecode-viewer-3.0.0.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'the.bytecode.club', nexusUrl: '35.231.84.239:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-trial', version: '3.0.0'
