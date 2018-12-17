@@ -6,7 +6,7 @@ pipeline
     maven 'apache-maven-3.3.9' }
  stages 
   {      
-    stage('Maven Build') {
+    stage('NPM Build') {
       when {
         expression
          { 
