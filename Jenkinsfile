@@ -10,7 +10,7 @@ pipeline
       when {
         expression
          { 
-           return readFile('pom.xml')
+           return readFile('package.json')
          }
         }
          steps {
