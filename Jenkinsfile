@@ -3,9 +3,8 @@ pipeline
   agent any
   tools {
     nodejs "node"
-    maven 'apache-maven-3.3.9'
-  }  
-  stages 
+    maven 'apache-maven-3.3.9' }
+ stages 
   {      
     stage('Maven Build') {
       when {
@@ -18,16 +17,16 @@ pipeline
             nexusArtifactUploader artifacts: [[artifactId: 'bytecode-viewer', classifier: '', file: 'target/bytecode-viewer-3.0.0.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'the.bytecode.club', nexusUrl: '35.231.84.239:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-trial', version: '3.0.0'
             }
          }
-     stage('Build NPM Code') 
-      {
+      stage('Build NPM Code') 
+       {
          when {
            expression { return readFile('package.json')
          }
-       steps{
+        steps{
          sh 'cp .npmrc /var/lib/jenkins'
          sh 'npm install'
          sh 'npm publish'
         }
        }
-       }
-     } 
+      }
+  } 
