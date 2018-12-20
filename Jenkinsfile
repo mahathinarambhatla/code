@@ -22,8 +22,11 @@ pipeline
     }
      stage ('OWASP publish')
             {
+              steps
+              {
               dependencyCheckAnalyzer datadir: '', hintsFile: '', includeCsvReports: true, includeHtmlReports: true, includeJsonReports: true, includeVulnReports: true, isAutoupdateDisabled: true, outdir: '', scanpath: ' ${WORKSPACE}', skipOnScmChange: false, skipOnUpstreamChange: false, suppressionFile: '', zipExtensions: ''
             dependencyCheckPublisher()
+              }
             }
   }        
  }
